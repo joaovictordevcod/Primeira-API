@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\segur\\source\\repos\\ApiTeste\\ApiTeste.csproj": {}
+    "C:\\Users\\segur\\Source\\Repos\\Primeira-API\\ApiTeste\\ApiTeste.csproj": {}
   },
   "projects": {
-    "C:\\Users\\segur\\source\\repos\\ApiTeste\\ApiTeste.csproj": {
+    "C:\\Users\\segur\\Source\\Repos\\Primeira-API\\ApiTeste\\ApiTeste.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\segur\\source\\repos\\ApiTeste\\ApiTeste.csproj",
+        "projectUniqueName": "C:\\Users\\segur\\Source\\Repos\\Primeira-API\\ApiTeste\\ApiTeste.csproj",
         "projectName": "ApiTeste",
-        "projectPath": "C:\\Users\\segur\\source\\repos\\ApiTeste\\ApiTeste.csproj",
+        "projectPath": "C:\\Users\\segur\\Source\\Repos\\Primeira-API\\ApiTeste\\ApiTeste.csproj",
         "packagesPath": "C:\\Users\\segur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\segur\\source\\repos\\ApiTeste\\obj\\",
+        "outputPath": "C:\\Users\\segur\\source\\repos\\Primeira-API\\ApiTeste\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

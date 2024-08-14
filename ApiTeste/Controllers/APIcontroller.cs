@@ -1,43 +1,58 @@
+using ApiTeste.Cliente;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections;
 
 namespace ApiTeste.Controllers
 {
     [ApiController]
-    [Route ("api/clientes")]
-    public class APIController : ControllerBase
+    [Route ("api/clientes")]//roteamento
+    public class APIController : ControllerBase//herda as caracteristicas da classe pre-definida
     {
-        [HttpGet("encontrar-Cliente")]
+        private ArrayList _clientes;
+
+        public APIController() 
+        {
+            _clientes = new ArrayList();
+        }
+         
+        //Controller para encontrar todos clientes
+        [HttpGet("encontrar-cliente")]
         public ActionResult Get()
         {
             return Ok("Clientes encontrado");
         }
 
-        [HttpGet("get-by-id")]
-        public ActionResult Get()
+        //Controller get by id
+        [HttpGet("get-by-id/{ID}")]
+        public ActionResult GetById(int ID)
         {
-            var bool= false;
-            if (bool=true)
-            {
-                return Ok(); 
-            }
-            else
-            {
-                return BadRequest();
-            }
+            return Ok("Cliente de id x encontrado");
+        }
 
-        [HttpPost("Cadastro-de-Cliente")]
-        public ActionResult Post()
+        //Controller para cadastro de cliente pf
+        [HttpPost("cadastro-de-cliente-pf")]
+        public ActionResult Post([FromBody] ClientePF client)
         {
             return Ok("Cliente cadastrado");
         }
 
-        [HttpPut("Atualizar-cliente")]
-        public ActionResult Put()
+        //Controller para cadastro de cliente pj
+        [HttpPost("cadastro-de-cliente-pj")]
+        public ActionResult Post([FromBody] ClientePJ client)
+        {
+            return Ok("Cliente cadastrado");
+        }
+
+        //Controller para atualização de cliente
+        [HttpPut("atualizar-cliente/{ID}")]
+        public ActionResult Put(int ID,[FromBody] Client cliente)
         {
             return Ok("Cliente atualizado");
         }
 
-        [HttpDelete( "Excluir-cliente")]
+        //Controller para exclusão de cliente
+        [HttpDelete("excluir-cliente")]
         public ActionResult Delete()
         {
             return Ok("Cliente excluido com sucesso");
