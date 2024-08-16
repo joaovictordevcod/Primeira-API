@@ -2,18 +2,10 @@
 {
     public class Client
     {
-     public string Nome { get; set; }
-     public string Telefone { get; set; }
-     public string Email { get; set; }
+     public string? Nome { get; set; }
+     public object? Telefone { get; set; }
+     public string? Email { get; set; }
+     public int Id { get; set; }
     }
 
-    public class ClientePF : Client  
-    {
-     public int CPF { get; set; }
-    }
-
-    public class ClientePJ : Client
-    {
-     public int CNPJ { get; set; }
-    }
 }

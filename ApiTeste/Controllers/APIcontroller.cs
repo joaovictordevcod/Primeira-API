@@ -1,61 +1,59 @@
 using ApiTeste.Cliente;
-using Microsoft.AspNetCore.Components.Forms;
+using ApiTeste.Service;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections;
+using System.Collections.Generic;
+
 
 namespace ApiTeste.Controllers
 {
     [ApiController]
-    [Route ("api/clientes")]//roteamento
-    public class APIController : ControllerBase//herda as caracteristicas da classe pre-definida
+    [Route("api/clientes")]
+    public class APIController : ControllerBase
     {
-        private ArrayList _clientes;
+        public List<Client> Clientes { get; set; }
 
-        public APIController() 
+        public APIController()
         {
-            _clientes = new ArrayList();
+            Clientes = new List<Client>()
+            {
+                new Client{Nome= "jOAO",Telefone="984998591",Email="joao@gmail.com",Id=3}
+            };
         }
-         
-        //Controller para encontrar todos clientes
-        [HttpGet("encontrar-cliente")]
+
+        [HttpGet()]
         public ActionResult Get()
         {
-            return Ok("Clientes encontrado");
+            return Ok(Clientes);
         }
 
-        //Controller get by id
-        [HttpGet("get-by-id/{ID}")]
-        public ActionResult GetById(int ID)
+        [HttpGet("get-by-id/{Id}")]
+        public ActionResult GetById(int Id)
         {
-            return Ok("Cliente de id x encontrado");
+            var cliente = Clientes.Where(c => c.Id == Id).FirstOrDefault();
+            if (cliente == null)
+            {
+                return NotFound($"Cliente com ID {Id} não encontrado.");
+            }
+            return Ok(cliente);
         }
 
-        //Controller para cadastro de cliente pf
-        [HttpPost("cadastro-de-cliente-pf")]
-        public ActionResult Post([FromBody] ClientePF client)
+        [HttpPost()]
+        public ActionResult Post([FromBody]List<Client> clients)
         {
-            return Ok("Cliente cadastrado");
+            Clientes.AddRange(clients);
+            return Ok(Clientes);
         }
 
-        //Controller para cadastro de cliente pj
-        [HttpPost("cadastro-de-cliente-pj")]
-        public ActionResult Post([FromBody] ClientePJ client)
-        {
-            return Ok("Cliente cadastrado");
-        }
-
-        //Controller para atualização de cliente
-        [HttpPut("atualizar-cliente/{ID}")]
-        public ActionResult Put(int ID,[FromBody] Client cliente)
+        [HttpPut("{Id}")]
+        public ActionResult Put(int Id, [FromBody] Client clienteAtualizado)
         {
             return Ok("Cliente atualizado");
         }
 
-        //Controller para exclusão de cliente
-        [HttpDelete("excluir-cliente")]
-        public ActionResult Delete()
+        [HttpDelete("{Id}")]
+        public ActionResult Delete(int Id)
         {
-            return Ok("Cliente excluido com sucesso");
+            return Ok("Cliente excluído com sucesso.");
         }
     }
 }

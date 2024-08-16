@@ -11,7 +11,7 @@
         "projectName": "ApiTeste",
         "projectPath": "C:\\Users\\segur\\Source\\Repos\\Primeira-API\\ApiTeste\\ApiTeste.csproj",
         "packagesPath": "C:\\Users\\segur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\segur\\source\\repos\\Primeira-API\\ApiTeste\\obj\\",
+        "outputPath": "C:\\Users\\segur\\Source\\Repos\\Primeira-API\\ApiTeste\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
